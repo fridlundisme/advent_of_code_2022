@@ -8,14 +8,13 @@ defmodule FileReader do
   end
 
   def calculate_value([head | tail]) do
-    [calculate_value(head), calculate_value(tail)]
-    |> List.flatten()
+    [calculate_value(head) | calculate_value(tail)]
     |> Enum.sort(:desc)
     |> Enum.slice(0..2)
   end
 
   def calculate_value([]) do
-    0
+    [0]
   end
 
   def calculate_value(elf_calories) do
