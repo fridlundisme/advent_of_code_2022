@@ -5,8 +5,8 @@ defmodule RockPaperScissors do
   end
 
   def play([match | rest]) do
-    hands = String.split(match)
-    opponent = Enum.fetch!(hands, 0)
+    hands = String.split(match) |> IO.inspect()
+    opponent = Enum.fetch!(hands, 0) |> IO.inspect()
     you = Enum.fetch!(hands, 1)
     (result({opponent, you}) |> elem(1)) + play(rest)
   end
